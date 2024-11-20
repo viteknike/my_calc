@@ -38,6 +38,9 @@
 			border-collapse: collapse;
 			outline: 1px solid #000;
 		}
+		.button.click {
+			background: #fff;
+		}
 		label {
 			width: 50px;
 			border: 1px solid #000;
@@ -69,8 +72,10 @@
 		});
 		document.querySelectorAll('#calc .button').forEach(function (button) {
 			button.addEventListener('click', onButtonClick);
+			addEventListener('mouseout', removeBack);
 		})
 		function onButtonClick(e) {
+			e.target.classList.add('.click')
 			if(e.target.innerHTML === 'c') {
 				inputVal.innerHTML = '0'
 			}
@@ -85,7 +90,7 @@
 			}
 			else if(e.target.innerHTML === 'Del') {
 				inputVal.innerHTML = inputVal.innerHTML.slice(0, -1);
-			} 
+			}
 			else if(e.target.innerHTML === '%') {
 				inputVal.innerHTML = +inputVal.innerHTML / 100;
 				console.log(+inputVal.innerHTML / 100)
@@ -93,6 +98,10 @@
 			else {
 				inputVal.innerHTML += e.target.innerHTML;
 			}
+			e.target.classList.add('click')
+		}
+		function removeBack(e) {
+			e.target.classList.remove('click')
 		}
 	</script>
 </body>
