@@ -15,20 +15,26 @@
 		}
 		#calc {
 			width: 200px;
+			padding: 15px;
 			margin: auto;
+			background: #cecece;
+			border-radius: 30px;
 		}
 
 		#inputVal {
 			height: 30px;
-			background: #cecece;
+			border-radius: 30px;
+			background: #fff;
 			outline: 1px solid #000;
 			padding-left: 20px;
+			margin-bottom: 10px;
 			display: flex;
 			align-items: center;
 		}
 
 		.button {
 			width: 25%;
+			border-radius: 30px;
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
@@ -60,7 +66,7 @@
 			'1', '2', '3', '-',
 			'4', '5', '6', '*',
 			'7', '8', '9', '/',
-			'0', '&nbsp;', '.', '='
+			'0', '00', '.', '='
 		];
 		var calc = document.querySelector('#calc');
 		var inputVal = document.querySelector('#inputVal');
@@ -75,7 +81,7 @@
 			addEventListener('mouseout', removeBack);
 		})
 		function onButtonClick(e) {
-			e.target.classList.add('.click')
+			e.target.classList.add('click')
 			if(e.target.innerHTML === 'c') {
 				inputVal.innerHTML = '0'
 			}
